@@ -35,18 +35,17 @@
 
 ![img1](img/img1.png)
 
-wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
-dpkg -i zabbix-release_latest_7.0+debian13_all.deb
-apt update
-apt install zabbix-server-pgsql zabbix-frontend-php php8.4-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
-apt install postgres
-apt update
-apt install postgresql
-systemctl status zabbix-server.service
-sudo -u postgres createuser --pwprompt zabbix
-sudo -u postgres createdb -O zabbix zabbix
-zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
-
+	wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
+	dpkg -i zabbix-release_latest_7.0+debian13_all.deb
+	apt update
+	apt install zabbix-server-pgsql zabbix-frontend-php php8.4-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+	apt install postgres
+	apt update
+	apt install postgresql
+	systemctl status zabbix-server.service
+	sudo -u postgres createuser --pwprompt zabbix
+	sudo -u postgres createdb -O zabbix zabbix
+	zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
 
 ---
 
