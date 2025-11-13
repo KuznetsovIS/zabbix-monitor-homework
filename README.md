@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию "`Система мониторинга Zabbix`" - `Кузнецов Иван Сергеевич`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -24,25 +24,28 @@
 
 ### Задание 1
 
-`Приведите ответ в свободной форме........`
+## `Установите Zabbix Server с веб-интерфейсом`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+## `Процесс выполнения`
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+1. `Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.`
+2. `Установите PostgreSQL. Для установки достаточна та версия, что есть в системном репозитороии Debian 11.`
+3. `Пользуясь конфигуратором команд с официального сайта, составьте набор команд для установки последней версии Zabbix с поддержкой PostgreSQL и Apache.`
+4. `Выполните все необходимые команды для установки Zabbix Server и Zabbix Web Server.` 
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![скриншот](https://github.com/KuznetsovIS/zabbix-monitor-homework/main/img/img1.jpg)
+
+wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian13_all.deb
+dpkg -i zabbix-release_latest_7.0+debian13_all.deb
+apt update
+apt install zabbix-server-pgsql zabbix-frontend-php php8.4-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+apt install postgres
+apt update
+apt install postgresql
+systemctl status zabbix-server.service
+sudo -u postgres createuser --pwprompt zabbix
+sudo -u postgres createdb -O zabbix zabbix
+zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
 
 
 ---
